@@ -1,0 +1,29 @@
+THE SUN AND THE SKY — website
+==============================
+
+To view the site:
+  Double-click  index.html  (it opens in your browser).
+
+To add your YouTube links:
+  1. Open  index.html  in any text editor (TextEdit is fine).
+  2. Near the bottom, find the block titled
+        CONTENT CONFIG — EDIT YOUR YOUTUBE LINKS HERE
+  3. There are two lists:
+        VIDEOS  -> the 3 films (first one is the big feature)
+        TRACKS  -> up to 9 audio tracks
+  4. For each one, paste your link between the quotes after  youtube:
+        youtube:"https://www.youtube.com/watch?v=XXXXXXXXXXX"
+     A bare ID also works:
+        youtube:"XXXXXXXXXXX"
+     Leave it empty ( youtube:"" ) to keep the "coming soon" placeholder.
+  5. While you're there you can rename the titles (title:"...").
+  6. Save, refresh the browser. Done.
+
+Folder layout:
+  index.html            the website
+  assets/img            hero, logo, favicon
+  assets/posters        the 6 gig posters
+  assets/gallery        the 12 photos
+
+To put it online later: upload the whole "TSATS Site" folder to any
+web host (Netlify, GitHub Pages, your own server). No build step needed.
