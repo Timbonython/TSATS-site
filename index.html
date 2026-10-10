@@ -757,10 +757,22 @@
   links.addEventListener('click', function(e){ if(e.target.tagName==='A') setMenu(false); });
 
   // ---- Reveal on scroll ----
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(en){ if(en.isIntersecting || en.boundingClientRect.top < 0){ en.target.classList.add('in'); io.unobserve(en.target); } });
-  }, {threshold:0, rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal')), ticking = false;
+  function sweep(){
+    ticking = false;
+    var limit = window.innerHeight * 0.95;
+    revealEls = revealEls.filter(function(el){
+      if(el.getBoundingClientRect().top < limit){ el.classList.add('in'); return false; }
+      return true;
+    });
+    if(!revealEls.length){ window.removeEventListener('scroll', onScroll); }
+  }
+  function onScroll(){ if(!ticking){ ticking = true; requestAnimationFrame(sweep); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  window.addEventListener('hashchange', onScroll);
+  window.addEventListener('load', sweep);
+  sweep();
 })();
 </script>
 </body>
