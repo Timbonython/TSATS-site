@@ -1,4 +1,4 @@
 .DS_Store
 **/.DS_Store
-Icon
-**/Icon
+# macOS custom-folder-icon files (named Icon + carriage return)
+Icon[]
