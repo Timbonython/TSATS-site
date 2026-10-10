@@ -187,6 +187,17 @@
   /* feature video grid */
   .videos{display:grid;grid-template-columns:1fr 1fr;gap:20px}
   .videos .feature{grid-column:1 / -1}
+  .livelinks{margin-top:34px;padding-top:22px;border-top:1px solid var(--line-soft)}
+  .livelinks h3{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin:0 0 12px;font-weight:700}
+  .livelinks ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 10px}
+  .livelinks a{display:inline-flex;align-items:baseline;gap:8px;padding:7px 12px;border:1px solid var(--line-soft);border-radius:999px;
+    color:var(--ink);text-decoration:none;font-size:.88rem;transition:border-color .2s,background .2s}
+  .livelinks a:hover{border-color:var(--accent);background:rgba(255,255,255,.03)}
+  .livelinks a::before{content:'\25B6';font-size:.62rem;color:var(--accent)}
+  .livelinks .m{color:var(--muted);font-family:var(--mono);font-size:11px;letter-spacing:.04em;white-space:nowrap}
+  .livelinks .credit{margin:12px 0 0;color:var(--muted);font-size:.82rem}
+  .livelinks .credit a{display:inline;padding:0;border:0;border-radius:0;font-size:inherit;text-decoration:underline;color:var(--muted)}
+  .livelinks .credit a::before{content:none}
   .video-card .cap{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-top:12px}
   .video-card .cap .n{font-family:var(--mono);font-size:11px;letter-spacing:.24em;color:var(--muted-2)}
   .video-card .cap .t{font-weight:700}
@@ -298,6 +309,7 @@
     .posters{columns:2}
   }
   @media(max-width:760px){
+    .livelinks a{flex-wrap:wrap;row-gap:2px;border-radius:12px}
     .feat{grid-template-columns:1fr}
     .showlist{columns:1}
     body{font-size:16px}
@@ -387,6 +399,17 @@
       <p>Three for the screen. The feature up top, two more underneath. Hit play once the films are live.</p>
     </div>
     <div class="videos reveal" id="videos"><!-- rendered by JS --></div>
+    <div class="livelinks reveal">
+      <h3>Live, filmed by Spoz</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/watch?v=undrbAOWuKI" target="_blank" rel="noopener">Already One <span class="m">Crown &amp; Sceptre · 7 Jul 2012</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=10qPplfha6Q" target="_blank" rel="noopener">Everything Is Black <span class="m">Crown &amp; Sceptre · 7 Jul 2012</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=bGBCQVmEQLU" target="_blank" rel="noopener">Live at the Ed Castle <span class="m">8 Jul 2011</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=AkEvrrGNsMI" target="_blank" rel="noopener">The lunatic dancer <span class="m">Ed Castle · 8 Jul 2011</span></a></li>
+        <li><a href="https://www.youtube.com/watch?v=rVEg1cHz1Mc" target="_blank" rel="noopener">The lunatic dancer, part 2 <span class="m">Ed Castle · 8 Jul 2011</span></a></li>
+      </ul>
+      <p class="credit">Shot by Adelaide gig stalwart Spoz Spozington. Plenty more local bands on <a href="https://www.youtube.com/@spozitron" target="_blank" rel="noopener">his YouTube channel</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -445,6 +468,7 @@
         <li><span class="d">12 Jan 2012</span><span class="w">Bands on Track final</span><span class="v">Fowler's Live, Adelaide: one of the finalists for the Clipsal 500 opening</span></li>
         <li><span class="d">19 Nov 2011</span><span class="w">Plus One with New Navy</span><span class="v">Supporting Sydney's New Navy</span></li>
         <li><span class="d">2 Oct 2011</span><span class="w">Ed Castle, Adelaide</span><span class="v">With Flat One and Saturday's Army</span></li>
+        <li><span class="d">8 Jul 2011</span><span class="w">Ed Castle, Adelaide</span><span class="v">With The Rules and Hurricane Jane, filmed by Spoz</span></li>
       </ol>
     </div>
     <div class="posters reveal" id="posters"><!-- rendered by JS --></div>
@@ -626,7 +650,7 @@
     {src:'assets/posters/poster-feb16.jpg',           alt:'The Sun And The Sky gig poster, February 16'},
     {src:'assets/posters/poster-june04-black.jpg',    alt:'Gig poster — The Sun And The Sky, Saturday June 4, Ed Castle'},
     {src:'assets/posters/poster-june04.jpg',          alt:'Gig poster — The Sun And The Sky, June 4'},
-    {src:'assets/posters/poster-july08-edcastle.jpg', alt:'Gig poster — Ed Castle with The Rules and Hurricane Jane, July 8'},
+    {src:'assets/posters/poster-july08-edcastle.jpg', alt:'Gig poster — Ed Castle with The Rules and Hurricane Jane, July 8 2011'},
     {src:'assets/posters/poster-oct02-edcastle.jpg',  alt:'Gig poster — Sunday Oct 2, Ed Castle'},
     {src:'assets/posters/poster-dotflyer.jpg',        alt:'The Sun And The Sky dot-pattern flyer'},
     {src:'assets/posters/poster-2012-02-22-fuse-east.jpg', alt:'Fuse East poster — 30 of Australia\'s top unearthed artists across the Adelaide East End, Wed 22 Feb 2012'},
