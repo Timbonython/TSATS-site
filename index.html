@@ -210,14 +210,16 @@
   .posters .pcard img{width:100%;transition:opacity .2s}
 
   /* ---------- GALLERY ---------- */
-  .grid-gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:12px}
+  .grid-gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;grid-auto-flow:dense;gap:12px}
   .grid-gallery .gitem{
     position:relative;border-radius:10px;overflow:hidden;border:1px solid var(--line-soft);
     aspect-ratio:1/1;cursor:zoom-in;background:var(--surface);
   }
-  .grid-gallery .gitem img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .3s;filter:saturate(.96)}
+  .grid-gallery .gitem img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .3s;filter:saturate(.96)}
   .grid-gallery .gitem:hover img{transform:scale(1.06);filter:saturate(1.08)}
   .grid-gallery .gitem.span2{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .grid-gallery .gitem.wide{grid-column:span 2;aspect-ratio:auto}
+  .grid-gallery .gitem.tall{grid-row:span 2;aspect-ratio:auto}
 
   /* ---------- ABOUT ---------- */
   .about{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
@@ -386,7 +388,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Live <span class="dot">/</span> 03</span>
       <h2>Gig Posters</h2>
-      <p>Bills shared with some very good company across 2011. Tap any poster to blow it up.</p>
+      <p>Bills shared with some very good company, from the Ed Castle to Sydney's Oxford Art Factory, 2010 to 2013. Tap any poster to blow it up.</p>
     </div>
     <div class="posters reveal" id="posters"><!-- rendered by JS --></div>
   </div>
@@ -569,6 +571,11 @@
     {src:'assets/posters/poster-july08-edcastle.jpg', alt:'Gig poster — Ed Castle with The Rules and Hurricane Jane, July 8'},
     {src:'assets/posters/poster-oct02-edcastle.jpg',  alt:'Gig poster — Sunday Oct 2, Ed Castle'},
     {src:'assets/posters/poster-dotflyer.jpg',        alt:'The Sun And The Sky dot-pattern flyer'},
+    {src:'assets/posters/poster-2012-09-06-edcastle.jpg', alt:'Gig poster — Kingswood, Boy In A Box and The Sun and The Sky, Thursday 6 September, Ed Castle'},
+    {src:'assets/posters/poster-2012-09-tour-boyinabox-kingswood.jpg', alt:'Tour poster — Boy In A Box vs Kingswood, Split-Ends Tour, 2012'},
+    {src:'assets/posters/poster-2012-10-01-echofestival.jpg', alt:'Echo Festival poster — Mount Barker Oval, 1 October 2012'},
+    {src:'assets/posters/poster-2013-02-22-arcadelane.jpg', alt:'A stack of freshly printed Arcade Lane gig posters, Friday 22 February 2013'},
+    {src:'assets/posters/poster-2013-03-15-musicmakers-oaf.jpg', alt:'Gig poster — The Music Makers Club, Oxford Art Factory, Sydney, Friday 15 March 2013'},
   ];
   (function(){
     var host = document.getElementById('posters');
@@ -580,6 +587,9 @@
   // ---- Gallery ----
   var GALLERY = [
     {src:'assets/gallery/gmain-avatars.jpg', alt:'The Sun And The Sky — band promo portrait', span:true},
+    {src:'assets/gallery/g23.jpg', alt:'The four band members in front of the band backdrop', shape:'wide', pos:'center 30%'},
+    {src:'assets/gallery/g24.jpg', alt:'Live at Echo Festival, Mount Barker, 2012 — photo by Alex Brunt', shape:'tall'},
+    {src:'assets/gallery/g25.jpg', alt:'The band and friends crammed into a backstage group shot', shape:'wide', pos:'center 35%'},
     {src:'assets/gallery/g01.jpg', alt:'Live on stage under red lighting with a lightning-bolt backdrop'},
     {src:'assets/gallery/g02.jpg', alt:'Outdoor festival stage on a green field'},
     {src:'assets/gallery/g03.jpg', alt:'Close-up of a synthesizer keyboard rig'},
@@ -602,11 +612,34 @@
     {src:'assets/gallery/g20.jpg', alt:'Two band members during rehearsal'},
     {src:'assets/gallery/g21.jpg', alt:'Sound desk glowing against the stage lights'},
     {src:'assets/gallery/g22.jpg', alt:'Band member standing and playing during rehearsal'},
+    {src:'assets/gallery/ig01.jpg', alt:'Loading in at Echo Festival, Mount Barker, October 2012'},
+    {src:'assets/gallery/ig02.jpg', alt:'Hanging out backstage at Echo Festival with the gear'},
+    {src:'assets/gallery/ig03.jpg', alt:'On stage at Echo Festival, about to get loud'},
+    {src:'assets/gallery/ig04.jpg', alt:'The Killgirls lighting up the night stage at Echo Festival'},
+    {src:'assets/gallery/ig05.jpg', alt:'Band practice in the rehearsal room, October 2012'},
+    {src:'assets/gallery/ig06.jpg', alt:'Black and white close-up of a guitar resting on a knee'},
+    {src:'assets/gallery/ig07.jpg', alt:'In the crowd at a big outdoor show, January 2013'},
+    {src:'assets/gallery/ig08.jpg', alt:'The Arcade Lane crowd just before the set, February 2013'},
+    {src:'assets/gallery/ig09.jpg', alt:'The Gluttony sign lit up at the Adelaide Fringe, before the band DJ set'},
+    {src:'assets/gallery/ig10.jpg', alt:'On the decks for the silent-disco DJ set at Gluttony, March 2013'},
+    {src:'assets/gallery/ig11.jpg', alt:'Band selfie, March 2013'},
+    {src:'assets/gallery/ig12.jpg', alt:'Two band members with road cases at the airport, mission accomplished'},
+    {src:'assets/gallery/ig13.jpg', alt:'Already One release artwork — out 16 March 2013, streaming on triple j Unearthed', span:true},
+    {src:'assets/gallery/ig14.jpg', alt:'City Calm Down live at Jack Ruby, Adelaide, April 2013'},
+    {src:'assets/gallery/ig15.jpg', alt:'Already One by The Sun and The Sky on the Rage playlist'},
+    {src:'assets/gallery/ig16.jpg', alt:'A rehearsal that went a little too long, guitarist down'},
+    {src:'assets/gallery/ig17.jpg', alt:'Three band members out on the street at night'},
+    {src:'assets/gallery/ig18.jpg', alt:'The Sun and The Sky in lights on the venue sign'},
+    {src:'assets/gallery/ig19.jpg', alt:'The Transatlantics live at Jive, Adelaide'},
+    {src:'assets/gallery/ig20.jpg', alt:'Unboxing a new set of Roland V-Drums, 2014'},
+    {src:'assets/gallery/ig21.jpg', alt:'Back in the rehearsal room, 2014'},
   ];
   (function(){
     var host = document.getElementById('gallery-grid');
     host.innerHTML = GALLERY.map(function(g){
-      return '<button class="gitem'+(g.span?' span2':'')+'" data-full="'+g.src+'" aria-label="Enlarge: '+g.alt+'"><img loading="lazy" src="'+g.src+'" alt="'+g.alt+'"></button>';
+      var cls = 'gitem'+(g.span?' span2':'')+(g.shape?' '+g.shape:'');
+      var st = g.pos ? ' style="object-position:'+g.pos+'"' : '';
+      return '<button class="'+cls+'" data-full="'+g.src+'" aria-label="Enlarge: '+g.alt+'"><img loading="lazy" src="'+g.src+'" alt="'+g.alt+'"'+st+'></button>';
     }).join('');
   })();
 
